@@ -1,0 +1,25 @@
+body {
+  padding-top: 70px;
+  background-image: url("/assets/images/google-news.jpg");
+  height: 100%; 
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
+}
+
+body, html {
+  height: 100%;
+}
+
+.deleteNote {
+display: inline-block;
+}
+
+.previousNotes {
+  display: inline-block;
+  width: 90%
+}
+
+#scrape {
+  margin: 8px 0px;
+}
