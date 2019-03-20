@@ -1,9 +1,11 @@
-//Handle Scrape button
-$("#scrape").on("click", function() {
+//Handle Scrape button and search term
+$("#scrape").on("click", () => {
+    let searchTerm = $('#scrapesearch').val().trim() || 'politics';
+    // alert('SCRAPE SEARCH: ' + searchTerm);
     $.ajax({
         method: "GET",
-        url: "/scrape",
-    }).done(function(data) {
+        url: "/scrape/" + searchTerm,
+    }).done((data) => {
         console.log(data)
         window.location = "/"
     })

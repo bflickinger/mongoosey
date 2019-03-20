@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <!--jQuery Link-->
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <!--Bootstrap Links-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <!--jQuery Link-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!--Bootstrap Links-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <!--CSS Style Sheet-->
-        <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-        <title>Mongo Google News Scraper!</title>
-    </head>
-    <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <!--CSS Style Sheet-->
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+
+    <title>Mongo Google News Scraper!</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top justify-content-between">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">Mongoogler</a>
@@ -25,14 +31,19 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/">Home</a></li>
                     <li><a href="/saved">Saved Articles</a></li>
-                    <li><button type="button" class="btn btn-primary" id="scrape">Scrape Articles</button></li>
+                    {{!-- <li><button type="button" class="btn btn-primary" id="scrape">Scrape Articles</button></li> --}}
                 </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" id="scrapesearch" type="search" placeholder="scrape search term" aria-label="Search">
+                    <button type="button" class="btn btn-primary" id="scrape">Scrape</button>
+                </form>
             </div>
         </div>
     </nav>
     {{{ body }}}
 
-        <!--External JS Link-->
-        <script src="/assets/js/app.js"></script>
-    </body>
+    <!--External JS Link-->
+    <script src="/assets/js/app.js"></script>
+</body>
+
 </html>

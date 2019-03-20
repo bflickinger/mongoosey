@@ -60,7 +60,7 @@ app.get("/", (req, res) => {
         };
         console.log(hbsObject);
         res.render("home", hbsObject);
-    });
+    }).sort({_id: -1});
 });
 
 app.get("/saved", (req, res) => {
@@ -72,9 +72,11 @@ app.get("/saved", (req, res) => {
     });
 });
 
-app.get("/scrape", (req, res) => {
+app.get("/scrape/:search", (req, res) => {
     // First, we grab the body of the html with axios
-    let searchTerm = 'politics';
+    // let searchTerm = 'politics';
+    let searchTerm = req.params.search;
+    // console.log('SEARCH TERM: ' + searchTerm);
     let searchUrl = 'https://www.google.com/search?q=' + searchTerm + '&tbm=nws';
     axios.get(searchUrl).then(function (response) {
         // Then, we load that into cheerio and save it to $ for a shorthand selector
