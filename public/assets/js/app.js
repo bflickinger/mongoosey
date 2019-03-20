@@ -17,29 +17,29 @@ $(".navbar-nav li").click(function() {
    $(this).addClass("active");
 });
 
-//Handle Save Article button
+//Event handler for save article
 $(".save").on("click", function() {
     var thisId = $(this).attr("data-id");
     $.ajax({
         method: "POST",
         url: "/articles/save/" + thisId
-    }).done(function(data) {
+    }).done((data) => {
         window.location = "/"
     })
 });
 
-//Handle Delete Article button
+//Event handler for delete article
 $(".delete").on("click", function() {
     var thisId = $(this).attr("data-id");
     $.ajax({
         method: "POST",
         url: "/articles/delete/" + thisId
-    }).done(function(data) {
+    }).done((data) => {
         window.location = "/saved"
     })
 });
 
-//Handle Save Note button
+//Event handler for note save
 $(".saveNote").on("click", function() {
     var thisId = $(this).attr("data-id");
     if (!$("#noteText" + thisId).val()) {
@@ -51,7 +51,7 @@ $(".saveNote").on("click", function() {
             data: {
               text: $("#noteText" + thisId).val()
             }
-          }).done(function(data) {
+          }).done((data) => {
               // Log the response
               console.log(data);
               // Empty the notes section
@@ -62,14 +62,14 @@ $(".saveNote").on("click", function() {
     }
 });
 
-//Handle Delete Note button
+//Event Handler for note delete
 $(".deleteNote").on("click", function() {
     var noteId = $(this).attr("data-note-id");
     var articleId = $(this).attr("data-article-id");
     $.ajax({
         method: "DELETE",
         url: "/notes/delete/" + noteId + "/" + articleId
-    }).done(function(data) {
+    }).done((data) => {
         console.log(data)
         $(".modalNote").modal("hide");
         window.location = "/saved"

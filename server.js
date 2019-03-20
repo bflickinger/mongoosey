@@ -5,7 +5,7 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
 
-// Require the needed models
+// Require the models
 const Note = require("./models/Note.js");
 const Article = require("./models/Article.js");
 
@@ -73,10 +73,8 @@ app.get("/saved", (req, res) => {
 });
 
 app.get("/scrape/:search", (req, res) => {
-    // First, we grab the body of the html with axios
-    // let searchTerm = 'politics';
+    // First, we grab the body of the html with axios.  The search term will be 'politics' if nothing is entered.
     let searchTerm = req.params.search;
-    // console.log('SEARCH TERM: ' + searchTerm);
     let searchUrl = 'https://www.google.com/search?q=' + searchTerm + '&tbm=nws';
     axios.get(searchUrl).then(function (response) {
         // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -124,7 +122,6 @@ app.get("/articles/:id", (req, res) => {
         .exec((error, doc) => error ? console.log(error) : res.json(doc));
 });
 
-
 // Save an article
 app.post("/articles/save/:id", (req, res) => {
     Article.findOneAndUpdate({ "_id": req.params.id }, { "saved": true })
@@ -136,7 +133,6 @@ app.post("/articles/delete/:id", (req, res) => {
     Article.findOneAndUpdate({ "_id": req.params.id }, { "saved": false, "notes": [] })
         .exec((error, doc) => error ? console.log(error) : res.send(doc));
 });
-
 
 // Create a new note
 app.post("/notes/save/:id", (req, res) => {
